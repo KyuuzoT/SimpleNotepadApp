@@ -666,5 +666,10 @@ namespace SimpleNotepad
         {
 
         }
+
+        private void SimpleNotepadForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
