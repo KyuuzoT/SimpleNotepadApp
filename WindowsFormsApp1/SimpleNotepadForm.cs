@@ -25,8 +25,9 @@ namespace SimpleNotepad
         {
             Left,
             Right,
-            Center //
+            Center
         };
+
 
         private eAlignment eAlign = eAlignment.Left; //переменная-нумератор для использования в switch
 
@@ -43,12 +44,14 @@ namespace SimpleNotepad
             statusBar.Panels.AddRange(new StatusBarPanel[] { promptBar, isChangedBar });
             promptBar.BorderStyle = StatusBarPanelBorderStyle.None;
             promptBar.AutoSize = StatusBarPanelAutoSize.Spring;
-            promptBar.Width = 678;
+            promptBar.Width = 648;
 
-            isChangedBar.Width = 160;
+            isChangedBar.Width = 190;
             isChangedBar.Alignment = HorizontalAlignment.Right;
             this.Controls.Add(statusBar);
         }
+
+
         private void menuFile_Click(object sender, EventArgs e)
         {
 
@@ -334,6 +337,11 @@ namespace SimpleNotepad
                         break;
                 }
             }
+            else
+            {
+                Dispose(true);
+                this.Close();
+            }
             
         }
 
@@ -426,6 +434,7 @@ namespace SimpleNotepad
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
             bDocumentChanged = true;
+            isChangedBar.Text = "Есть несохраненные изменения";
         }
 
         /// <summary>
@@ -665,6 +674,54 @@ namespace SimpleNotepad
         private void sStripLayout(object sender, LayoutEventArgs e)
         {
 
+        }
+
+        private void menuSelect(object sender, EventArgs e)
+        {
+            string sSelectedString;
+            switch((sender as ToolStripMenuItem).Text)
+            {
+                //Группа пункта меню File
+                case "&File": sSelectedString = "Меню действий с файлом"; break;
+                case "&New": sSelectedString = "Создать документ"; break;
+                case "&Open...": sSelectedString = "Открыть новый документ"; break;
+                case "&Save": sSelectedString = "Сохранить документ"; break;
+                case "Save &as...": sSelectedString = "Сохранить документ как..."; break;
+                case "Page Setup": sSelectedString = "Настройки страницы"; break;
+                case "Print Preview": sSelectedString = "Перпросмотр печати"; break;
+                case "&Print": sSelectedString = "Печать файла"; break;
+                case "E&xit": sSelectedString = "Выход из программы"; break;
+                //Группа пункта меню Edit
+                case "&Edit": sSelectedString = "Меню редактирования"; break;
+                case "&Undo": sSelectedString = "Отменить последнее действие"; break;
+                case "&Redo": sSelectedString = "Возвратить последнее действие"; break;
+                case "Cut": sSelectedString = "Вырезать"; break;
+                case "Copy": sSelectedString = "Копировать"; break;
+                case "Paste": sSelectedString = "Вставить"; break;
+                case "Delete": sSelectedString = "Удалить"; break;
+                case "Select All": sSelectedString = "Выделить все в поле ввода"; break;
+                //Группа пункта меню Format
+                case "&Format": sSelectedString = "Меню форматирования текста"; break;
+                case "&Font": sSelectedString = "Настройки шрифта"; break;
+                case "&Color": sSelectedString = "Цвет текста"; break;
+                case "&Style": sSelectedString = "Подменю настройки стиля"; break;
+                case "&Bold": sSelectedString = "Полужирный"; break;
+                case "&Italic": sSelectedString = "Курсив"; break;
+                case "&Underline": sSelectedString = "Подчеркнутый"; break;
+                case "&Strike Out": sSelectedString = "Перечеркнутый"; break;
+                case "&Alignment": sSelectedString = "Подменю настройки выравнивания"; break;
+                case "&Left": sSelectedString = "Выровнять по левому краю"; break;
+                case "&Right": sSelectedString = "Выровнять по правому краю"; break;
+                case "&Center": sSelectedString = "Выровнять по центру"; break;
+                //Группа пункта меню Help
+                case "Help": sSelectedString = "Меню информации"; break;
+                case "About": sSelectedString = "Информация о программе"; break;
+                default:
+                    sSelectedString = "";
+                    break;
+            }
+
+            promptBar.Text = sSelectedString;
         }
     }
 }
