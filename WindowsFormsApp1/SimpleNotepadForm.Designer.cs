@@ -37,17 +37,21 @@
                         base.Dispose(disposing);
                         break;
                     case System.Windows.Forms.DialogResult.Cancel:
+                        disposing = false;
                         break;
                     default:
                         break;
                 }
             }
             else
+            {
                 if (disposing && (components != null))
                 {
                     components.Dispose();
                 }
                 base.Dispose(disposing);
+            }
+                
         }
 
         #region Код, автоматически созданный конструктором форм Windows
@@ -106,21 +110,21 @@
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.создатьToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.открытьToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.сохранитьToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.печатьToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.вырезатьToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.копироватьToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.вставкаToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.справкаToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.справкаToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -156,6 +160,7 @@
             this.menuFile.Size = new System.Drawing.Size(44, 24);
             this.menuFile.Text = "&File";
             this.menuFile.Click += new System.EventHandler(this.menuFile_Click);
+            this.menuFile.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // menuFileNew
             // 
@@ -163,6 +168,7 @@
             this.menuFileNew.Size = new System.Drawing.Size(181, 26);
             this.menuFileNew.Text = "&New";
             this.menuFileNew.Click += new System.EventHandler(this.menuFileNew_Click);
+            this.menuFileNew.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // menuFileOpen
             // 
@@ -170,6 +176,7 @@
             this.menuFileOpen.Size = new System.Drawing.Size(181, 26);
             this.menuFileOpen.Text = "&Open...";
             this.menuFileOpen.Click += new System.EventHandler(this.menuFileOpen_Click);
+            this.menuFileOpen.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // menuFileSave
             // 
@@ -177,6 +184,7 @@
             this.menuFileSave.Size = new System.Drawing.Size(181, 26);
             this.menuFileSave.Text = "&Save";
             this.menuFileSave.Click += new System.EventHandler(this.menuFileSave_Click);
+            this.menuFileSave.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // menuFileSaveAs
             // 
@@ -184,6 +192,7 @@
             this.menuFileSaveAs.Size = new System.Drawing.Size(181, 26);
             this.menuFileSaveAs.Text = "Save &as...";
             this.menuFileSaveAs.Click += new System.EventHandler(this.menuFileSaveAs_Click);
+            this.menuFileSaveAs.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // toolStripSeparator1
             // 
@@ -196,6 +205,7 @@
             this.menuFileSetup.Size = new System.Drawing.Size(181, 26);
             this.menuFileSetup.Text = "Page Setup";
             this.menuFileSetup.Click += new System.EventHandler(this.menuFileSetup_Click);
+            this.menuFileSetup.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // menuFilePrintPreview
             // 
@@ -203,6 +213,7 @@
             this.menuFilePrintPreview.Size = new System.Drawing.Size(181, 26);
             this.menuFilePrintPreview.Text = "Print Preview";
             this.menuFilePrintPreview.Click += new System.EventHandler(this.menuFilePrintPreview_Click);
+            this.menuFilePrintPreview.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // menuFilePrint
             // 
@@ -210,6 +221,7 @@
             this.menuFilePrint.Size = new System.Drawing.Size(181, 26);
             this.menuFilePrint.Text = "&Print";
             this.menuFilePrint.Click += new System.EventHandler(this.menuFilePrint_Click);
+            this.menuFilePrint.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // toolStripSeparator2
             // 
@@ -222,6 +234,7 @@
             this.menuFileExit.Size = new System.Drawing.Size(181, 26);
             this.menuFileExit.Text = "E&xit";
             this.menuFileExit.Click += new System.EventHandler(this.menuFileExit_Click);
+            this.menuFileExit.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // menuEdit
             // 
@@ -239,6 +252,7 @@
             this.menuEdit.Size = new System.Drawing.Size(47, 24);
             this.menuEdit.Text = "&Edit";
             this.menuEdit.Click += new System.EventHandler(this.menuEdit_Click);
+            this.menuEdit.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // menuEditUndo
             // 
@@ -246,6 +260,7 @@
             this.menuEditUndo.Size = new System.Drawing.Size(146, 26);
             this.menuEditUndo.Text = "&Undo";
             this.menuEditUndo.Click += new System.EventHandler(this.menuEditUndo_Click);
+            this.menuEditUndo.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // menuEditRedo
             // 
@@ -253,6 +268,7 @@
             this.menuEditRedo.Size = new System.Drawing.Size(146, 26);
             this.menuEditRedo.Text = "&Redo";
             this.menuEditRedo.Click += new System.EventHandler(this.menuEditRedo_Click);
+            this.menuEditRedo.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // toolStripSeparator3
             // 
@@ -265,6 +281,7 @@
             this.menuEditCut.Size = new System.Drawing.Size(146, 26);
             this.menuEditCut.Text = "Cut";
             this.menuEditCut.Click += new System.EventHandler(this.menuEditCut_Click);
+            this.menuEditCut.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // menuEditCopy
             // 
@@ -272,6 +289,7 @@
             this.menuEditCopy.Size = new System.Drawing.Size(146, 26);
             this.menuEditCopy.Text = "Copy";
             this.menuEditCopy.Click += new System.EventHandler(this.menuEditCopy_Click);
+            this.menuEditCopy.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // menuEditPaste
             // 
@@ -279,6 +297,7 @@
             this.menuEditPaste.Size = new System.Drawing.Size(146, 26);
             this.menuEditPaste.Text = "Paste";
             this.menuEditPaste.Click += new System.EventHandler(this.menuEditPaste_Click);
+            this.menuEditPaste.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // menuEditDelete
             // 
@@ -286,6 +305,7 @@
             this.menuEditDelete.Size = new System.Drawing.Size(146, 26);
             this.menuEditDelete.Text = "Delete";
             this.menuEditDelete.Click += new System.EventHandler(this.menuEditDelete_Click);
+            this.menuEditDelete.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // toolStripSeparator4
             // 
@@ -298,6 +318,7 @@
             this.menuEditSelectAll.Size = new System.Drawing.Size(146, 26);
             this.menuEditSelectAll.Text = "Select All";
             this.menuEditSelectAll.Click += new System.EventHandler(this.menuEditSelectAll_Click);
+            this.menuEditSelectAll.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // menuFormat
             // 
@@ -309,6 +330,7 @@
             this.menuFormat.Name = "menuFormat";
             this.menuFormat.Size = new System.Drawing.Size(68, 24);
             this.menuFormat.Text = "&Format";
+            this.menuFormat.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // menuFormatFont
             // 
@@ -316,6 +338,7 @@
             this.menuFormatFont.Size = new System.Drawing.Size(153, 26);
             this.menuFormatFont.Text = "&Font";
             this.menuFormatFont.Click += new System.EventHandler(this.menuFormatFont_Click);
+            this.menuFormatFont.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // menuFormatColor
             // 
@@ -323,6 +346,7 @@
             this.menuFormatColor.Size = new System.Drawing.Size(153, 26);
             this.menuFormatColor.Text = "&Color";
             this.menuFormatColor.Click += new System.EventHandler(this.menuFormatColor_Click);
+            this.menuFormatColor.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // styleToolStripMenuItem
             // 
@@ -334,6 +358,7 @@
             this.styleToolStripMenuItem.Name = "styleToolStripMenuItem";
             this.styleToolStripMenuItem.Size = new System.Drawing.Size(153, 26);
             this.styleToolStripMenuItem.Text = "&Style";
+            this.styleToolStripMenuItem.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // menuFormatStyleBold
             // 
@@ -341,6 +366,7 @@
             this.menuFormatStyleBold.Size = new System.Drawing.Size(149, 26);
             this.menuFormatStyleBold.Text = "&Bold";
             this.menuFormatStyleBold.Click += new System.EventHandler(this.menuFormatStyleBold_Click);
+            this.menuFormatStyleBold.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // menuFormatStyleItalic
             // 
@@ -348,6 +374,7 @@
             this.menuFormatStyleItalic.Size = new System.Drawing.Size(149, 26);
             this.menuFormatStyleItalic.Text = "&Italic";
             this.menuFormatStyleItalic.Click += new System.EventHandler(this.menuFormatStyleItalic_Click);
+            this.menuFormatStyleItalic.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // menuFormatStyleUnderline
             // 
@@ -355,6 +382,7 @@
             this.menuFormatStyleUnderline.Size = new System.Drawing.Size(149, 26);
             this.menuFormatStyleUnderline.Text = "&Underline";
             this.menuFormatStyleUnderline.Click += new System.EventHandler(this.menuFormatStyleUnderline_Click);
+            this.menuFormatStyleUnderline.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // menuFormatStyleStrikeOut
             // 
@@ -362,6 +390,7 @@
             this.menuFormatStyleStrikeOut.Size = new System.Drawing.Size(149, 26);
             this.menuFormatStyleStrikeOut.Text = "&Strike Out";
             this.menuFormatStyleStrikeOut.Click += new System.EventHandler(this.menuFormatStyleStrikeOut_Click);
+            this.menuFormatStyleStrikeOut.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // alignmentToolStripMenuItem
             // 
@@ -372,6 +401,7 @@
             this.alignmentToolStripMenuItem.Name = "alignmentToolStripMenuItem";
             this.alignmentToolStripMenuItem.Size = new System.Drawing.Size(153, 26);
             this.alignmentToolStripMenuItem.Text = "&Alignment";
+            this.alignmentToolStripMenuItem.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // menuFormatAlignmentLeft
             // 
@@ -379,6 +409,7 @@
             this.menuFormatAlignmentLeft.Size = new System.Drawing.Size(127, 26);
             this.menuFormatAlignmentLeft.Text = "&Left";
             this.menuFormatAlignmentLeft.Click += new System.EventHandler(this.menuFormatAlignmentLeft_Click);
+            this.menuFormatAlignmentLeft.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // menuFormatAlignmentRight
             // 
@@ -386,6 +417,7 @@
             this.menuFormatAlignmentRight.Size = new System.Drawing.Size(127, 26);
             this.menuFormatAlignmentRight.Text = "&Right";
             this.menuFormatAlignmentRight.Click += new System.EventHandler(this.menuFormatAlignmentRight_Click);
+            this.menuFormatAlignmentRight.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // menuFormatAlignmentCenter
             // 
@@ -393,6 +425,7 @@
             this.menuFormatAlignmentCenter.Size = new System.Drawing.Size(127, 26);
             this.menuFormatAlignmentCenter.Text = "&Center";
             this.menuFormatAlignmentCenter.Click += new System.EventHandler(this.menuFormatAlignmentCenter_Click);
+            this.menuFormatAlignmentCenter.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // menuHelp
             // 
@@ -402,6 +435,7 @@
             this.menuHelp.Size = new System.Drawing.Size(53, 24);
             this.menuHelp.Text = "Help";
             this.menuHelp.Click += new System.EventHandler(this.menuHelp_Click);
+            this.menuHelp.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // menuHelpAbout
             // 
@@ -409,6 +443,7 @@
             this.menuHelpAbout.Size = new System.Drawing.Size(125, 26);
             this.menuHelpAbout.Text = "About";
             this.menuHelpAbout.Click += new System.EventHandler(this.menuHelpAbout_Click);
+            this.menuHelpAbout.MouseEnter += new System.EventHandler(this.menuSelect);
             // 
             // richTextBox1
             // 
@@ -479,22 +514,6 @@
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "new.bmp");
-            this.imageList1.Images.SetKeyName(1, "open.bmp");
-            this.imageList1.Images.SetKeyName(2, "save.bmp");
-            this.imageList1.Images.SetKeyName(3, "preview.bmp");
-            this.imageList1.Images.SetKeyName(4, "print.bmp");
-            this.imageList1.Images.SetKeyName(5, "copy.bmp");
-            this.imageList1.Images.SetKeyName(6, "cut.bmp");
-            this.imageList1.Images.SetKeyName(7, "paste.bmp");
-            this.imageList1.Images.SetKeyName(8, "redo.bmp");
-            this.imageList1.Images.SetKeyName(9, "undo.bmp");
-            this.imageList1.Images.SetKeyName(10, "help.bmp");
-            // 
             // создатьToolStripButton
             // 
             this.создатьToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -521,6 +540,15 @@
             this.сохранитьToolStripButton.Name = "сохранитьToolStripButton";
             this.сохранитьToolStripButton.Size = new System.Drawing.Size(24, 24);
             this.сохранитьToolStripButton.Text = "&Сохранить";
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(24, 24);
+            this.toolStripButton3.Text = "toolStripButton3";
             // 
             // печатьToolStripButton
             // 
@@ -568,15 +596,6 @@
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 27);
             // 
-            // справкаToolStripButton
-            // 
-            this.справкаToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.справкаToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("справкаToolStripButton.Image")));
-            this.справкаToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.справкаToolStripButton.Name = "справкаToolStripButton";
-            this.справкаToolStripButton.Size = new System.Drawing.Size(24, 24);
-            this.справкаToolStripButton.Text = "Спр&авка";
-            // 
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -595,19 +614,35 @@
             this.toolStripButton2.Size = new System.Drawing.Size(24, 24);
             this.toolStripButton2.Text = "toolStripButton2";
             // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton3.Text = "toolStripButton3";
-            // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(6, 27);
+            // 
+            // справкаToolStripButton
+            // 
+            this.справкаToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.справкаToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("справкаToolStripButton.Image")));
+            this.справкаToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.справкаToolStripButton.Name = "справкаToolStripButton";
+            this.справкаToolStripButton.Size = new System.Drawing.Size(24, 24);
+            this.справкаToolStripButton.Text = "Спр&авка";
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "new.bmp");
+            this.imageList1.Images.SetKeyName(1, "open.bmp");
+            this.imageList1.Images.SetKeyName(2, "save.bmp");
+            this.imageList1.Images.SetKeyName(3, "preview.bmp");
+            this.imageList1.Images.SetKeyName(4, "print.bmp");
+            this.imageList1.Images.SetKeyName(5, "copy.bmp");
+            this.imageList1.Images.SetKeyName(6, "cut.bmp");
+            this.imageList1.Images.SetKeyName(7, "paste.bmp");
+            this.imageList1.Images.SetKeyName(8, "redo.bmp");
+            this.imageList1.Images.SetKeyName(9, "undo.bmp");
+            this.imageList1.Images.SetKeyName(10, "help.bmp");
             // 
             // SimpleNotepadForm
             // 
