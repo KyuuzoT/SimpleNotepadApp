@@ -12,6 +12,7 @@ using System.Windows.Forms;
 
 namespace SimpleNotepad
 {
+    //TODO: Значек, собрать экзешник. Скинуть людям на тестирование.
     public partial class SimpleNotepadForm : Form
     {
         private string sOpenFileName; //Переменная для хранения имени файла после диалога открытия. Нужна для использования в методе сохранения файла.
